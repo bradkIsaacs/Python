@@ -1,0 +1,66 @@
+
+MAL error report
+NoErrors2.MAL
+2019-09-28 08:17:40.921413
+Bradley Isaacs
+CS 3210
+
+-------------
+
+original MAL program listing:
+
+1. ; initialize
+2.           LOADI     R0,0    ;running total
+3. 
+4.           LOADI     R1,1    ;*for* loop counter and value to be summed
+5. 
+6.           LOADI     R2,12   ;loop limit, 12 is octal is 10
+7. ; for loop: top test, definite loop
+8.   TOP:
+9.           BGT       R1,R2,CONT      ; value > 10 (limit)?
+10.           ADD       R0,R1,R0        ; total + value = total
+11.           INC       R1                ; value++
+12.           BR        TOP
+13.   CONT:
+14.           STORE     R0, TOTAL
+15.           ; program complete
+16.           END
+
+-------------
+
+stripped MAL program listing:
+
+2.           LOADI     R0,0    
+4.           LOADI     R1,1    
+6.           LOADI     R2,12   
+8.   TOP:
+9.           BGT       R1,R2,CONT      
+10.           ADD       R0,R1,R0        
+11.           INC       R1                
+12.           BR        TOP
+13.   CONT:
+14.           STORE     R0, TOTAL
+15.           
+16.           END
+
+-------------
+
+error report listing:
+
+2.           LOADI     R0,0    
+4.           LOADI     R1,1    
+6.           LOADI     R2,12   
+8.   TOP:
+9.           BGT       R1,R2,CONT      
+10.           ADD       R0,R1,R0        
+11.           INC       R1                
+12.           BR        TOP
+13.   CONT:
+14.           STORE     R0, TOTAL
+15.           
+**error: invalid opcode ;
+16.           END
+
+-----------------
+
+Total Errors = 1

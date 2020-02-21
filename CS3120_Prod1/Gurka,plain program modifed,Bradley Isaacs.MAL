@@ -1,0 +1,12 @@
+          LOADI     R0, 0
+          LOADI     R1, 82 ; invalid immediate 82 not in octal
+          LOADI     R2, 12
+  TOP:
+          BGT       R1, R2, CONT
+          ADD       R0, R1 ; too few operands
+          INC       R1
+          BR        TOP4 ; ill-formed label
+  CONT:   STORE     R0, TOTAL
+          END
+  ; warning no call to branch top
+  ; warning top4 is not calling a branch

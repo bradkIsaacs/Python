@@ -1,0 +1,68 @@
+
+Error Report for: Gurka,plain program modifed,Bradley Isaacs
+Gurka,plain program modifed,Bradley Isaacs.MAL
+Gurka,plain program modifed,Bradley Isaacs.log
+2019-02-20 10:34:36.489953
+Bradley Isaacs 
+CS 3210
+
+--------------------------------------
+
+original MAL Program listing
+
+1.           LOADI     R0, 0
+2.           LOADI     R1, 82 ; invalid immediate 82 not in octal
+3.           LOADI     R2, 12
+4.   TOP:
+5.           BGT       R1, R2, CONT
+6.           ADD       R0, R1 ; too few operands
+7.           INC       R1
+8.           BR        TOP4 ; ill-formed label
+9.   CONT:   STORE     R0, TOTAL
+10.           END
+11.   ; warning no call to branch top
+12.   ; warning top4 is not calling a branch
+
+-------------------------------------------------
+
+stripped MAL Program listing
+
+1. LOADI R0, 0
+2. LOADI R1, 82
+3. LOADI R2, 12
+4. TOP:
+5. BGT R1, R2, CONT
+6. ADD R0, R1
+7. INC R1
+8. BR TOP4
+9. CONT: STORE R0, TOTAL
+10. END
+
+-------------------------------------------------
+
+error report listing
+
+1. LOADI R0, 0
+2. LOADI R1, 82
+**error ill-formed literal: 82
+3. LOADI R2, 12
+4. TOP:
+5. BGT R1, R2, CONT
+6. ADD R0, R1
+**error too few operands expected: 3 Found: 2
+7. INC R1
+8. BR TOP4
+**error ill-formed banch call: TOP4
+9. CONT: STORE R0, TOTAL
+10. END
+
+--------------------
+
+Total errors found: 3
+--- MAL program does have an END statment, but not at the bottom of the program ---
+**warning no branch found but calls for branch: TOP4, were made**
+**warning there are no calls made to these branch(s): TOP:, **
+1 ill-formed Label
+1 too few operands
+1 ill-formed literal
+Processing complete -- MAL program not valid

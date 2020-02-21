@@ -1,0 +1,62 @@
+
+Error Report for: one error type,Bradley Isaacs
+one error type,Bradley Isaacs.MAL
+one error type,Bradley Isaacs.log
+2019-02-20 10:26:48.581133
+Bradley Isaacs 
+CS 3210
+
+--------------------------------------
+
+original MAL Program listing
+
+1. 
+2. ; One type of error: Too few operands
+3. 
+4. ADD R1, R0, R1
+5. 
+6. SUB R0, R3       ; Too few operands
+7. 
+8. INC R0
+9. 
+10. DEC R0
+11. 
+12. LOAD R0, TOTAL
+13. 
+14. LOADI R2 ; Too few operands
+15. 
+16. BR ; Too few operands
+
+-------------------------------------------------
+
+stripped MAL Program listing
+
+4. ADD R1, R0, R1
+6. SUB R0, R3
+8. INC R0
+10. DEC R0
+12. LOAD R0, TOTAL
+14. LOADI R2
+16. BR
+
+-------------------------------------------------
+
+error report listing
+
+4. ADD R1, R0, R1
+6. SUB R0, R3
+**error too few operands expected: 3 Found: 2
+8. INC R0
+10. DEC R0
+12. LOAD R0, TOTAL
+14. LOADI R2
+**error too few operands expected: 2 Found: 1
+16. BR
+**error too few operands expected: 1 Found: 0
+
+--------------------
+
+Total errors found: 3
+--- END Statement missing from program ---
+3 too few operands
+Processing complete -- MAL program not valid

@@ -1,0 +1,16 @@
+
+; One type of error: Too few operands
+
+ADD R1, R0, R1
+
+SUB R0, R3       ; Too few operands
+
+INC R0
+
+DEC R0
+
+LOAD R0, TOTAL
+
+LOADI R2 ; Too few operands
+
+BR ; Too few operands

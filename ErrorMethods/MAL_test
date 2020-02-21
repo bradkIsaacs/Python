@@ -1,0 +1,10 @@
+ADD R1,R0,R1,R3
+;1st comment
+SUB R0,R3
+
+INC R0
+DEC R0 ;This is a comment aswell
+LOD R0,R7
+;2nd comment
+LOADI R2
+BR 

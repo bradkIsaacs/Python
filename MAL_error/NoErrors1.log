@@ -1,0 +1,67 @@
+
+MAL error report
+NoErrors1.MAL
+2019-09-28 08:15:19.915248
+Bradley Isaacs
+CS 3210
+
+-------------
+
+original MAL program listing:
+
+1.           LOADI     R0,0
+2. 
+3.           LOADI     R1,1
+4. 
+5.           LOADI     R2,12
+6. 
+7.   TOP:
+8. 
+9.           BGT       R1,R2,CONT
+10. 
+11.           ADD       R0,R1,R0
+12. 
+13.           INC       R1
+14. 
+15.           BR        TOP
+16. 
+17.   CONT:
+18.           STORE     R0, TOTAL
+19. 
+20.           END
+
+-------------
+
+stripped MAL program listing:
+
+1.           LOADI     R0,0
+3.           LOADI     R1,1
+5.           LOADI     R2,12
+7.   TOP:
+9.           BGT       R1,R2,CONT
+11.           ADD       R0,R1,R0
+13.           INC       R1
+15.           BR        TOP
+17.   CONT:
+18.           STORE     R0, TOTAL
+20.           END
+
+-------------
+
+error report listing:
+
+1.           LOADI     R0,0
+3.           LOADI     R1,1
+5.           LOADI     R2,12
+7.   TOP:
+9.           BGT       R1,R2,CONT
+11.           ADD       R0,R1,R0
+13.           INC       R1
+15.           BR        TOP
+17.   CONT:
+18.           STORE     R0, TOTAL
+20.           END
+
+-----------------
+
+Total Errors = 0

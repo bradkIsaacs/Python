@@ -1,0 +1,7 @@
+ADD R1,R0,R1 Line 1 passed no errors 
+SUB R0,R3 Line 2 Missing Registar or Destination decloration 
+INC R0 Line 3 passed no errors 
+DEC R0 Line 4 passed no errors 
+LOAD R0,R7 Line 5 passed no errors 
+LOADI R2 Line 6 Missing Registar or Destination decloration 
+BR  Line 7 Missing Registar or Destination decloration 

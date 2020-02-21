@@ -1,0 +1,11 @@
+;; Bradley Isaacs
+
+ADD R1 ; Too few operands
+
+SUB R3, R7, R4, R3 ; Too many operands
+
+SSB R3, R7, R4 ; Invalid opCode
+
+LOADI R1, 80 ; ill-formed literal
+
+ADD R0, R1 ; Too few operands

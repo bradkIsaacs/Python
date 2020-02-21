@@ -1,0 +1,73 @@
+
+MAL error report
+MAL_test.MAL
+2019-09-28 08:18:39.782653
+Bradley Isaacs
+CS 3210
+
+-------------
+
+original MAL program listing:
+
+1. ADD R1,R0,R1,R3
+2. ;1st comment
+3. SUB R0,R3
+4. 
+5. BRANCH: INC R0
+6. DEC R0 ;This is a comment aswell
+7. LOD R0,TOTAL
+8. ;2nd comment
+9. LOAD R0, TO1
+10. INC R0
+11. BGT R1,R2,STR
+12. LOADI R2,82
+13. BR BRANCH
+14. BR
+15. STORE R3, DESTINATION
+
+-------------
+
+stripped MAL program listing:
+
+1. ADD R1,R0,R1,R3
+3. SUB R0,R3
+5. BRANCH: INC R0
+6. DEC R0 
+7. LOD R0,TOTAL
+9. LOAD R0, TO1
+10. INC R0
+11. BGT R1,R2,STR
+12. LOADI R2,82
+13. BR BRANCH
+14. BR
+15. STORE R3, DESTINATION
+
+-------------
+
+error report listing:
+
+1. ADD R1,R0,R1,R3
+**error: too many operands expected 3 found 4
+3. SUB R0,R3
+**error: too few operands expected 3 found 2
+5. BRANCH: INC R0
+**error: invalid label BRANCH:
+6. DEC R0 
+7. LOD R0,TOTAL
+**error: invalid opcode LOD
+9. LOAD R0, TO1
+**error: invalid identifier TO1 
+10. INC R0
+11. BGT R1,R2,STR
+12. LOADI R2,82
+**error: ill-formed literal 82 number is invalid for octal
+13. BR BRANCH
+**error: invalid label call BRANCH
+14. BR
+**error: too few operands expected 1 found 0
+15. STORE R3, DESTINATION
+**error: invalid identifier DESTINATION 
+
+-----------------
+
+Total Errors = 9

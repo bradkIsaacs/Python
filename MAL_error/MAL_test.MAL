@@ -1,0 +1,15 @@
+ADD R1,R0,R1,R3
+;1st comment
+SUB R0,R3
+
+BRANCH: INC R0
+DEC R0 ;This is a comment aswell
+LOD R0,TOTAL
+;2nd comment
+LOAD R0, TO1
+INC R0
+BGT R1,R2,STR
+LOADI R2,82
+BR BRANCH
+BR
+STORE R3, DESTINATION

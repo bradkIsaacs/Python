@@ -1,0 +1,20 @@
+          LOADI     R0,0
+
+          LOADI     R1,1
+
+          LOADI     R2,12
+
+  TOP:
+
+          BGT       R1,R2,CONT
+
+          ADD       R0,R1,R0
+
+          INC       R1
+
+          BR        TOP
+
+  CONT:
+          STORE     R0, TOTAL
+
+          END

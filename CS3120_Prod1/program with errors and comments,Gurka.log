@@ -1,0 +1,133 @@
+
+Error Report for: program with errors and comments,Gurka
+program with errors and comments,Gurka.MAL
+program with errors and comments,Gurka.log
+2019-02-20 10:03:30.486716
+Bradley Isaacs 
+CS 3210
+
+--------------------------------------
+
+original MAL Program listing
+
+1. ;; MAL Program #2 – Simple *for* Loop, documented
+2. ;;
+3. ;; J. Gurka
+4. 
+5. ;; Description:
+6. ;;   This program illustrates a simple MAL program
+7. ;; to be used for testing the MAL parser.  It adds
+8. ;; the numbers from 1 to 10 using a *for* loop.
+9. ;;   MAL program #3 is identical to MAL program #1,
+10. ;; except that comments and blank lines have been added.
+11. ;; No errors have been introduced in the code.
+12. ;;
+13. ;; MAL instructions and features included, and to be
+14. ;;   added (marked *)
+15. ;;    1. blank lines
+16. ;;       a) between comments, single
+17. ;;       b) between comments, multiple
+18. ;;       c) *between code lines, single
+19. ;;       d) *between code lines, multiple
+20. ;;       e) after END pseudo-op
+21. ;;    2. comments
+22. ;;       a) block comments
+23. ;;       b) single line comments, with text
+24. ;;       c) single line comments, without text
+25. ;;       d) on-line comments
+26. ;;    3. labels
+27. ;;       a) with code
+28. ;;       b) without code
+29. ;;    4. instructions
+30. ;;       a) *LOAD
+31. ;;       b) LOADI
+32. ;;       c) STORE
+33. ;;       d) ADD
+34. ;;       e) INC
+35. ;;       f) *SUB
+36. ;;       g) *DEC
+37. ;;       h) *BEQ
+38. ;;       i) *BLT
+39. ;;       j) BGT
+40. ;;    5. pseudo-ops
+41. ;;       a) END
+42. ;;       b) *NOOP
+43. ;;    6. spaces
+44. ;;       a) after commas
+45. ;;       b) *none after commas
+46. ;;       c) after  label colon
+47. ;;       d) *none after label colon
+48. ;;       e) *one after op code
+49. ;;       f) multiple after op code
+50. 
+51. 
+52. ;; Register Use
+53. ;;   R0 – running total of values
+54. ;;   R1 – loop counter / values to be summed
+55. ;;   R2 – loop upper limit
+56. ;;   R3 .. R7 - unused
+57. 
+58. ;; Variable
+59. ;;   TOTAL – contains the sum of the values
+60. ;;     one through ten
+61. 
+62. ;; Labels
+63. ;;   TOP – first line of for loop, used for
+64. ;;     branching back
+65. ;;   CONT – line after end of for loop
+66. 
+67. 
+68. ; initialize
+69. ;
+70.           LOADI     R0, 0             ; running total
+71.           LOADI     R1, 1             ; *for* loop counter &
+72.                                       ;    value to be summed
+73.           LOADI     R2, 12            ; loop limit, 12 octal = 10
+74. 
+75. ; for loop: top test, definite loop
+76.   TOP:
+77.           BGT       R1, R2, CONT      ; value > 10 (limit)?
+78.           ADD       R0, R1, R0        ; total + value = total
+79.           INC       R1                ; value++
+80.           BR        TOP
+81.   CONT:   STORE     R0, TOTAL         ; save final sum
+82. 
+83. ; program complete
+84.           END
+85. 
+86. 
+
+-------------------------------------------------
+
+stripped MAL Program listing
+
+70. LOADI R0, 0
+71. LOADI R1, 1
+73. LOADI R2, 12
+76. TOP:
+77. BGT R1, R2, CONT
+78. ADD R0, R1, R0
+79. INC R1
+80. BR TOP
+81. CONT: STORE R0, TOTAL
+84. END
+
+-------------------------------------------------
+
+error report listing
+
+70. LOADI R0, 0
+71. LOADI R1, 1
+73. LOADI R2, 12
+76. TOP:
+77. BGT R1, R2, CONT
+78. ADD R0, R1, R0
+79. INC R1
+80. BR TOP
+81. CONT: STORE R0, TOTAL
+84. END
+
+--------------------
+
+Total errors found: 0
+Processing complete -- MAL program valid

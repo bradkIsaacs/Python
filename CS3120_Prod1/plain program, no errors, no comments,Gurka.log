@@ -1,0 +1,57 @@
+
+Error Report for: plain program, no errors, no comments,Gurka
+plain program, no errors, no comments,Gurka.MAL
+plain program, no errors, no comments,Gurka.log
+2019-02-20 09:47:33.848737
+Bradley Isaacs 
+CS 3210
+
+--------------------------------------
+
+original MAL Program listing
+
+1.           LOADI     R0, 0
+2.           LOADI     R1, 1
+3.           LOADI     R2, 12
+4.   TOP:
+5.           BGT       R1, R2, CONT
+6.           ADD       R0, R1, R0
+7.           INC       R1
+8.           BR        TOP
+9.   CONT:   STORE     R0, TOTAL
+10.           END
+
+-------------------------------------------------
+
+stripped MAL Program listing
+
+1. LOADI R0, 0
+2. LOADI R1, 1
+3. LOADI R2, 12
+4. TOP:
+5. BGT R1, R2, CONT
+6. ADD R0, R1, R0
+7. INC R1
+8. BR TOP
+9. CONT: STORE R0, TOTAL
+10. END
+
+-------------------------------------------------
+
+error report listing
+
+1. LOADI R0, 0
+2. LOADI R1, 1
+3. LOADI R2, 12
+4. TOP:
+5. BGT R1, R2, CONT
+6. ADD R0, R1, R0
+7. INC R1
+8. BR TOP
+9. CONT: STORE R0, TOTAL
+10. END
+
+--------------------
+
+Total errors found: 0
+Processing complete -- MAL program valid

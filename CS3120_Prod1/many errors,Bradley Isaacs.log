@@ -1,0 +1,58 @@
+
+Error Report for: many errors,Bradley Isaacs
+many errors,Bradley Isaacs.MAL
+many errors,Bradley Isaacs.log
+2019-02-20 10:18:24.900168
+Bradley Isaacs 
+CS 3210
+
+--------------------------------------
+
+original MAL Program listing
+
+1. ;; Bradley Isaacs
+2. 
+3. ADD R1 ; Too few operands
+4. 
+5. SUB R3, R7, R4, R3 ; Too many operands
+6. 
+7. SSB R3, R7, R4 ; Invalid opCode
+8. 
+9. LOADI R1, 80 ; ill-formed literal
+10. 
+11. ADD R0, R1 ; Too few operands
+
+-------------------------------------------------
+
+stripped MAL Program listing
+
+3. ADD R1
+5. SUB R3, R7, R4, R3
+7. SSB R3, R7, R4
+9. LOADI R1, 80
+11. ADD R0, R1
+
+-------------------------------------------------
+
+error report listing
+
+3. ADD R1
+**error too few operands expected: 3 Found: 1
+5. SUB R3, R7, R4, R3
+**error too many operands expected: 3 Found: 4
+7. SSB R3, R7, R4
+**error invalid opCode: SSB
+9. LOADI R1, 80
+**error ill-formed literal: 80
+11. ADD R0, R1
+**error too few operands expected: 3 Found: 2
+
+--------------------
+
+Total errors found: 5
+--- END Statement missing from program ---
+1 invalid opcode
+1 too many operands
+2 too few operands
+1 ill-formed literal
+Processing complete -- MAL program not valid
